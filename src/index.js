@@ -20,10 +20,13 @@ for (let i = 0; i < accordian.length; i++) {
 }
 
 function trackGetStarted() {
-  if (window.TrackierWebSDK) {
-    window.TrackierWebSDK.trackConvForBrand('reclame45.gotrackier.io', '691dc033f5d3640d480eb14c', {"is_iframe":true});
-    console.log('Conversion tracked');
+  if(!window.TrackierWebSDK) {
+    console.log('TrackierWebSDK not found');
+    return;
   }
+
+  window.TrackierWebSDK.trackConvForBrand('reclame45.gotrackier.io', '691dc033f5d3640d480eb14c', {"is_iframe":true});
+  console.log('Conversion tracked');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
